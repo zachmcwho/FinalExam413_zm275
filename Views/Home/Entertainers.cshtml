@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FinalExam413_zm275.Models.Entertainers>
+
+@{
+    ViewData["Title"] = "Entertainers";
+}
+
+<h1>Entertainers</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EntStageName)
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntStageName)
+            </td>
+           
+            <td>
+                
+               | <a asp-controller="Home" asp-action="EntertainerDetails" asp-route-id="@item.EntertainerId">Details</a> |
+                
+            </td>
+        </tr>
+}
+    </tbody>
+
+</table>
+
+<div>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="EntertainerCreate">Add Entertainer</a>
+</div>
